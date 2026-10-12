@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}BrandShield AI{% endblock %} - BrandShield AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-page="{% block page %}{% endblock %}">
+  <header class="topbar">
+    <a class="logo" href="/">&#9951; BrandShield <span>AI</span></a>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+    <nav class="nav">
+      <a href="/" class="{{ 'active' if request.path == '/' }}">Dashboard</a>
+      <a href="/brand" class="{{ 'active' if request.path == '/brand' }}">Brand Profile</a>
+      <a href="/social" class="{{ 'active' if request.path == '/social' }}">Social Monitor</a>
+      <a href="/apps" class="{{ 'active' if request.path == '/apps' }}">App Monitor</a>
+      <a href="/evidence" class="{{ 'active' if request.path == '/evidence' }}">Evidence Vault</a>
+    </nav>
+  </header>
+  <main class="container">{% block content %}{% endblock %}</main>
+  <div id="toasts" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

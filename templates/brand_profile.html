@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Brand Profile{% endblock %}
+{% block page %}brand{% endblock %}
+{% block content %}
+<h1>Official Brand Profile</h1>
+<p class="muted">This is the reference used to score every candidate. Saving re-analyzes existing records.</p>
+<form id="brandForm" class="card form">
+  <label>Brand name *<input name="name" required maxlength="120"></label>
+  <label>Website<input name="website" placeholder="https://www.example.com"></label>
+  <label class="wide">Description<textarea name="description" rows="3" maxlength="2000"></textarea></label>
+  <label class="wide">Official social handles (comma separated)<input name="social_handles" placeholder="brand, brand_help"></label>
+  <label>Official app name<input name="app_name"></label>
+  <label>Official app identifier / package<input name="app_id" placeholder="com.brand.app"></label>
+  <label>Official developer / publisher<input name="developer"></label>
+  <div class="wide"><button class="btn" type="submit">Save profile</button> <span id="formMsg" class="muted"></span></div>
+</form>
+{% endblock %}

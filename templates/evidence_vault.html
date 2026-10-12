@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Evidence Vault{% endblock %}
+{% block page %}evidence{% endblock %}
+{% block content %}
+<h1>Evidence Vault</h1>
+<p class="muted"><b>Local verification</b> recalculates the SHA-256 of the stored snapshot. <b>Blockchain verification</b> is separate and only available once a real contract is deployed and configured.</p>
+<div class="card" id="chainStatus">Checking blockchain status&hellip;</div>
+<div class="card table-wrap"><table>
+  <thead><tr><th>Evidence ID</th><th>Candidate</th><th>SHA-256</th><th>Created</th><th>Local check</th><th>Blockchain</th><th>Actions</th></tr></thead>
+  <tbody id="rows"><tr><td colspan="7" class="state">Loading&hellip;</td></tr></tbody></table></div>
+{% endblock %}

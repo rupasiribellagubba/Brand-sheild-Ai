@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Candidate{% endblock %}
+{% block page %}candidate{% endblock %}
+{% block content %}
+<div id="candidate" data-id="{{ cid }}">
+  <p><a id="backLink" href="/">&larr; Back</a></p>
+  <div id="state" class="state">Loading candidate&hellip;</div>
+  <div id="detail" hidden>
+    <div class="page-head"><h1 id="cName"></h1><div id="cBadges"></div></div>
+    <section class="grid two">
+      <div class="card"><h2>Record</h2><dl id="cFields" class="dl"></dl></div>
+      <div class="card"><h2>Risk score</h2><div id="scoreBox"></div>
+        <label>Review status <select id="statusSel"></select></label></div>
+    </section>
+    <section class="card"><h2>Explainable indicators</h2><div id="indicators"></div><ul id="notes" class="notes"></ul></section>
+    <section class="card"><h2>Analyst summary</h2><p id="summary" class="muted">No summary generated yet.</p>
+      <button class="btn secondary" id="sumBtn">Generate summary</button> <span id="sumMsg" class="muted"></span></section>
+    <section class="card"><h2>Evidence</h2>
+      <button class="btn" id="evBtn">Save snapshot to Evidence Vault</button>
+      <ul id="evList" class="notes"></ul></section>
+  </div>
+</div>
+{% endblock %}

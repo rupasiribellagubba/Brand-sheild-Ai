@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block page %}dashboard{% endblock %}
+{% block content %}
+<div class="page-head"><h1>Dashboard</h1>
+  <button class="btn secondary" id="seedBtn">Load sample data</button></div>
+<p class="muted" id="sampleNote"></p>
+<div id="dashState" class="state">Loading dashboard&hellip;</div>
+<div id="dash" hidden>
+  <section class="grid cards" id="kpis"></section>
+  <section class="grid two">
+    <div class="card"><h2>Official brand profile</h2><div id="brandBox"></div></div>
+    <div class="card"><h2>Blockchain status</h2><div id="chainBox"></div></div>
+  </section>
+  <section class="grid two">
+    <div class="card"><h2>Candidate review status</h2><div id="statusBox"></div></div>
+    <div class="card"><h2>Evidence verification</h2><div id="evBox"></div></div>
+  </section>
+  <section class="card"><h2>Recent activity</h2><ul class="activity" id="activity"></ul></section>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>{% endblock %}

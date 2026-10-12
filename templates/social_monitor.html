@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Social Monitor{% endblock %}
+{% block page %}monitor{% endblock %}
+{% block content %}
+<div id="monitor" data-kind="social">
+<h1>Social Media Monitoring</h1>
+<section class="grid two">
+  <form id="addForm" class="card form">
+    <h2>Add candidate profile</h2>
+    <label>Profile name *<input name="name" required></label>
+    <label>Username *<input name="username" required placeholder="@handle"></label>
+    <label>Platform *<input name="platform" required placeholder="Instagram, X, Facebook..."></label>
+    <label>URL<input name="url" placeholder="https://..."></label>
+    <label class="wide">Description / evidence<textarea name="description" rows="3"></textarea></label>
+    <div class="wide"><button class="btn" type="submit">Analyze &amp; save</button> <span id="addMsg" class="muted"></span></div>
+  </form>
+  <form id="csvForm" class="card form">
+    <h2>Import CSV</h2>
+    <p class="muted wide">Required columns: <code>name, username, platform</code>. Optional: <code>url, description</code>. Max 1 MB / 1000 rows.</p>
+    <label class="wide">CSV file<input type="file" name="file" accept=".csv" required></label>
+    <div class="wide"><button class="btn" type="submit">Upload &amp; analyze</button></div>
+    <div id="csvResult" class="wide"></div>
+  </form>
+</section>
+{% include "_filters.html" %}
+<div class="card table-wrap"><table>
+  <thead><tr><th>Profile</th><th>Platform</th><th>Score</th><th>Risk</th><th>Status</th><th></th></tr></thead>
+  <tbody id="rows"></tbody></table></div>
+</div>
+{% endblock %}
+{% block scripts %}{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}App Monitor{% endblock %}
+{% block page %}monitor{% endblock %}
+{% block content %}
+<div id="monitor" data-kind="apps">
+<h1>App Store Monitoring</h1>
+<p class="muted">Records come from manual entry or CSV import. No live store scraping is performed; sample records are labelled <span class="badge sample">SAMPLE</span>.</p>
+<section class="grid two">
+  <form id="addForm" class="card form">
+    <h2>Add candidate app</h2>
+    <label>App name *<input name="name" required></label>
+    <label>Developer / publisher<input name="developer"></label>
+    <label>App identifier / package<input name="app_id" placeholder="com.example.app"></label>
+    <label>Source<input name="source" placeholder="Google Play, App Store, APK site..."></label>
+    <label>Listing URL<input name="url"></label>
+    <label class="wide">Description / evidence<textarea name="description" rows="3"></textarea></label>
+    <div class="wide"><button class="btn" type="submit">Analyze &amp; save</button> <span id="addMsg" class="muted"></span></div>
+  </form>
+  <form id="csvForm" class="card form">
+    <h2>Import CSV</h2>
+    <p class="muted wide">Required column: <code>name</code>. Optional: <code>developer, app_id, source, url, description</code>. Max 1 MB / 1000 rows.</p>
+    <label class="wide">CSV file<input type="file" name="file" accept=".csv" required></label>
+    <div class="wide"><button class="btn" type="submit">Upload &amp; analyze</button></div>
+    <div id="csvResult" class="wide"></div>
+  </form>
+</section>
+{% include "_filters.html" %}
+<div class="card table-wrap"><table>
+  <thead><tr><th>App</th><th>Developer</th><th>App ID</th><th>Source</th><th>Score</th><th>Risk</th><th>Status</th><th></th></tr></thead>
+  <tbody id="rows"></tbody></table></div>
+</div>
+{% endblock %}
